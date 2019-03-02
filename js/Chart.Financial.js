@@ -266,7 +266,7 @@ module.exports = function(Chart) {
 	globalOpts.elements.financial = {
 		color: {
 			up: 'rgba(80, 160, 115, 1)',
-			down: 'rgba(215, 85, 65, 1)',
+			down: 'rgba(000, 00, 00, 1)',
 			unchanged: 'rgba(90, 90, 90, 1)',
 		},
 		fractionalDigitsCount: undefined,
