@@ -24,7 +24,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=386431835485592&autoLogAppEvents=1"></script>
 
     <nav class="navbar nav-extended no-padding">
       <div class="nav-wrapper"><a href="#" class="brand-logo">Log In</a>
@@ -68,6 +69,47 @@
           </script>
 
           <h5> </h5>
+
+          <script>
+            window.fbAsyncInit = function() {
+              FB.init({
+                appId      : '386431835485592',
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v3.2'
+              });
+
+              FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+              });
+              FB.AppEvents.logPageView();
+
+            };
+
+
+
+            (function(d, s, id){
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) {return;}
+              js = d.createElement(s); js.id = id;
+              js.src = "https://connect.facebook.net/en_US/sdk.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function checkLoginState() {
+              FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+              });
+            }
+          </script>
+
+          <fb:login-button
+                  scope="public_profile,email"
+                  onlogin="checkLoginState();">
+          </fb:login-button>
+
+          <h5> </h5>
+
 
           <form>
 
