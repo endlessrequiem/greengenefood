@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="">
-    <title>Chat - Admin</title>
+    <title>Grid - Admin</title>
     <link href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" rel="stylesheet">
     <link href="css/jqvmap.css" rel="stylesheet">
     <link href="css/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -17,11 +17,11 @@
     <!-- Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body class="has-fixed-sidenav">
+  <body>
     <header>
       <div class="navbar-fixed">
         <nav class="navbar white">
-          <div class="nav-wrapper"><a href="#!" class="brand-logo grey-text text-darken-4">Chat</a>
+          <div class="nav-wrapper"><a href="#!" class="brand-logo grey-text text-darken-4">Grid</a>
             <ul id="nav-mobile" class="right">
               <li class="hide-on-med-and-down"><a href="https://themes.materializecss.com/products/admin">Buy Now!</a></li>
               <li class="hide-on-med-and-down"><a href="#!" data-target="dropdown1" class="dropdown-trigger waves-effect"><i class="material-icons">notifications</i></a></li>
@@ -30,7 +30,7 @@
           </div>
         </nav>
       </div>
-      <ul id="sidenav-left" class="sidenav sidenav-fixed">
+      <ul id="sidenav-left" class="sidenav">
         <li><a href="dashboard.html" class="logo-container">Admin<i class="material-icons left">spa</i></a></li>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
@@ -38,9 +38,9 @@
               <div class="collapsible-body">
                 <ul>
                   <li><a href="dashboard.html" class="waves-effect">Dashboard<i class="material-icons">web</i></a></li>
-                  <li><a href="pages-fixed-chart.html" class="waves-effect">Fixed Chart<i class="material-icons">list</i></a></li>
-                  <li><a href="pages-grid.html" class="waves-effect">Grid<i class="material-icons">dashboard</i></a></li>
-                  <li><a href="pages-chat.html" class="waves-effect active">Chat<i class="material-icons">chat</i></a></li>
+                  <li><a href="pages-new-enter-food.html" class="waves-effect">Enter Food<i class="material-icons">add</i></a></li>
+                  <li><a href="pages-new-green-score.html" class="waves-effect active">Green Score<i class="material-icons">show_chart</i></a></li>
+                  <li><a href="pages-new-local-score.html" class="waves-effect">Local Score<i class="material-icons">near_me</i></a></li>
                 </ul>
               </div>
             </li>
@@ -157,49 +157,34 @@
     <div class="col l9 s12">
 
       <div class="card">
-        <div class="card-content">
-          <span class="card-title">Jane Doe</span>
-          <p>Currently Online</p>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="card-content">
-          <div class="chat-wrapper">
-
-            <div class="chat-message">
-              <img class="circle" src="img/portrait1.jpg" alt="avatar">
-              Lo-fi you probably haven't heard of them etsy leggings raclette kickstarter four dollar toast. Raw denim fingerstache food truck chia health goth synth. Forage man bun intelligentsia freegan PBR&B banh mi asymmetrical chambray.
+        <div class="card-metrics card-metrics-toggle card-metrics-centered">
+          <div class="card-metric waves-effect active" data-metric="revenue">
+            <div class="card-metric-title">Revenue</div>
+            <div class="card-metric-value">$12,476.00</div>
+            <div class="card-metric-change">
+              <i class="material-icons">keyboard_arrow_up</i>
+              12%
             </div>
-
-            <div class="chat-message right">
-              <img class="circle" src="img/portrait2.jpg" alt="avatar">
-              Lo-fi you probably haven't heard of them.
+          </div>
+          <div class="card-metric waves-effect" data-metric="users">
+            <div class="card-metric-title">Users</div>
+            <div class="card-metric-value">2024</div>
+            <div class="card-metric-change">
+              <i class="material-icons">keyboard_arrow_up</i>
+              9%
             </div>
-            <div class="chat-message right coalesce">
-              etsy leggings raclette kickstarter four dollar toast.
+          </div>
+          <div class="card-metric waves-effect" data-metric="ctr">
+            <div class="card-metric-title">CTR</div>
+            <div class="card-metric-value">0.20%</div>
+            <div class="card-metric-change">
+              <i class="material-icons">keyboard_arrow_up</i>
+              4%
             </div>
-            <div class="chat-message right coalesce">
-              Raw denim fingerstache food truck chia health goth synth. Forage man bun intelligentsia freegan PBR&B banh mi asymmetrical chambray.
-            </div>
-
-            <div class="chat-message">
-              <img class="circle" src="img/portrait1.jpg" alt="avatar">
-              Raw denim fingerstache food truck chia health goth synth.
-            </div>
-
           </div>
         </div>
-
-        <div class="chat-input">
-          <form action="">
-            <div class="chat-input-bar">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <button type="submit">
-                <i class="material-icons">send</i>
-              </button>
-            </div>
-          </form>
+        <div class="card-content">
+          <canvas class="card-chart" id="main-toggle-line-chart" height="300"></canvas>
         </div>
       </div>
 
@@ -208,53 +193,198 @@
     <div class="col l3 s12">
 
       <div class="card">
-        <div class="card-content">
-          <span class="card-title">Friends</span>
-          <p>12 Friends online</p>
+        <div class="card-toolbar">
+          <div class="card-toolbar-title">Devices</div>
+          <div class="card-toolbar-actions">
+            <div class="dropdown-trigger" data-target="devices-dropdown">
+              <i class="material-icons">more_vert</i>
+            </div>
+          </div>
+          <ul id="devices-dropdown" class="dropdown-content">
+            <li><a href="#!">Hide this Card</a></li>
+            <li><a href="#!">Learn More</a></li>
+          </ul>
         </div>
-        <ul class="collection flush">
-          <li class="collection-item avatar active">
-            <div class="badged-circle online">
-              <img class="circle" src="img/portrait1.jpg" alt="avatar">
+        <div class="card-content">
+          <div class="row row-vertical-center no-margin">
+            <div class="col s12 m6 l12">
+              <canvas id="doughnut-chart"></canvas>
             </div>
-            <span class="title">Jane Doe</span>
-            <p class="truncate">Lo-fi you probably haven't heard of them</p>
-          </li>
-
-          <li class="collection-item avatar">
-            <div class="badged-circle">
-              <img class="circle" src="img/portrait2.jpg" alt="avatar">
+            <div class="col s12 m6 l12">
+              <div class="chart-legend-wrapper"></div>
             </div>
-            <span class="title">John Chang</span>
-            <p class="truncate">etsy leggings raclette kickstarter four dollar toast</p>
-          </li>
-
-          <li class="collection-item avatar">
-            <div class="badged-circle">
-              <img class="circle" src="img/portrait3.jpg" alt="avatar">
-            </div>
-            <span class="title">Lisa Simpson</span>
-            <p class="truncate">Raw denim fingerstache food truck chia health goth synth</p>
-          </li>
-
-          <li class="collection-item avatar">
-            <div class="badged-circle">
-              <img class="circle" src="img/portrait2.jpg" alt="avatar">
-            </div>
-            <span class="title">Tobias Lee</span>
-            <p class="truncate">Forage man bun intelligentsia freegan PBR&B banh mi asymmetrical chambray.</p>
-          </li>
-
-          <li class="collection-item avatar">
-            <div class="badged-circle">
-              <img class="circle" src="img/portrait1.jpg" alt="avatar">
-            </div>
-            <span class="title">Charlotte Doe</span>
-            <p class="truncate">intelligentsia freegan PBR&B banh mi asymmetrical chambray.</p>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
+    </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Revenue</div>
+              <div class="card-metric-value">$12,476.00</div>
+              <div class="card-metric-change increase">
+                <i class="material-icons left">keyboard_arrow_up</i>
+                12%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-blue" height="100px"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Clicks</div>
+              <div class="card-metric-value">11,893</div>
+              <div class="card-metric-change increase">
+                <i class="material-icons left">keyboard_arrow_up</i>
+                8%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-yellow" height="100px"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Users</div>
+              <div class="card-metric-value">230,648</div>
+              <div class="card-metric-change decrease">
+                <i class="material-icons left">keyboard_arrow_down</i>
+                2%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-pink" height="100"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <div class="col l3 m6 s12">
+
+      <div class="card">
+        <div class="card-stacked">
+          <div class="card-metrics card-metrics-static">
+            <div class="card-metric">
+              <div class="card-metric-title">Conversion Rate</div>
+              <div class="card-metric-value">0.24%</div>
+              <div class="card-metric-change decrease">
+                <i class="material-icons left">keyboard_arrow_down</i>
+                9%
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-chart">
+          <canvas id="flush-area-chart-green" height="100"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col l3 m6 s12">
+      <div class="card admin-blue white-text">
+        <div class="card-toolbar">
+          <div class="card-toolbar-title"><i class="material-icons left">show_chart</i>Revenue</div>
+          <div class="card-toolbar-actions">
+            <div class="dropdown-trigger" data-target="admin-blue-dropdown">
+              <i class="material-icons">more_vert</i>
+            </div>
+          </div>
+          <ul id="admin-blue-dropdown" class="dropdown-content">
+            <li><a href="#!">Hide this Card</a></li>
+            <li><a href="#!">Learn More</a></li>
+          </ul>
+        </div>
+        <div class="card-content card-align-bottom">
+          <span class="card-title">Revenue has Increased</span>
+          <p class="white-text">Revenue has increased 12% this month compared to last month.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col l3 m6 s12">
+      <div class="card admin-yellow white-text">
+        <div class="card-toolbar">
+          <div class="card-toolbar-title"><i class="material-icons left">touch_app</i>Clicks</div>
+          <div class="card-toolbar-actions">
+            <div class="dropdown-trigger" data-target="admin-yellow-dropdown">
+              <i class="material-icons">more_vert</i>
+            </div>
+          </div>
+          <ul id="admin-yellow-dropdown" class="dropdown-content">
+            <li><a href="#!">Hide this Card</a></li>
+            <li><a href="#!">Learn More</a></li>
+          </ul>
+        </div>
+        <div class="card-content card-align-bottom">
+          <span class="card-title">Clicks has Increased</span>
+          <p class="white-text">Clicks has increased 8% this month compared to last month.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col l3 m6 s12">
+      <div class="card admin-pink white-text">
+        <div class="card-toolbar">
+          <div class="card-toolbar-title"><i class="material-icons left">people</i>Users</div>
+          <div class="card-toolbar-actions">
+            <div class="dropdown-trigger" data-target="admin-pink-dropdown">
+              <i class="material-icons">more_vert</i>
+            </div>
+          </div>
+          <ul id="admin-pink-dropdown" class="dropdown-content">
+            <li><a href="#!">Hide this Card</a></li>
+            <li><a href="#!">Learn More</a></li>
+          </ul>
+        </div>
+        <div class="card-content card-align-bottom">
+          <span class="card-title">Users has Decreased</span>
+          <p class="white-text">Users has decreased 2% this month compared to last month.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col l3 m6 s12">
+      <div class="card admin-green white-text">
+        <div class="card-toolbar">
+          <div class="card-toolbar-title"><i class="material-icons left">whatshot</i>Conversion Rate</div>
+          <div class="card-toolbar-actions">
+            <div class="dropdown-trigger" data-target="admin-green-dropdown">
+              <i class="material-icons">more_vert</i>
+            </div>
+          </div>
+          <ul id="admin-green-dropdown" class="dropdown-content">
+            <li><a href="#!">Hide this Card</a></li>
+            <li><a href="#!">Learn More</a></li>
+          </ul>
+        </div>
+        <div class="card-content card-align-bottom">
+          <span class="card-title">Conversion Rate has Decreased</span>
+          <p class="white-text">Conversion Rate has decreased 9% this month compared to last month.</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -319,6 +449,7 @@
 
 <!-- Initialization script -->
 <script src="js/admin.js"></script>
+    <script src="js/page-scripts/dashboard.js"></script>
     <script src="js/init.js"></script>
   </body>
 </html>
