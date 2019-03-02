@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<p>
+
+    <main>
+        <b>IF YOU SEE THIS TEXT, THEN THE CHANGE HAS OCCURED IN THIS IFRAME!!! </b><br><br>
+
+        NEXT STEP IS TO ACTUALLY SEARCH THE WWW BY USING FOOD INPUT AS KEYWORD
+</p><br><br>
+
+
+<p>
+    Here's the passed two variables:
+</p><br><br>
+<div id = "div_pass">
+    <p id="pass_1">Hello World!</p>
+    <p id="pass_2">Hello World_2!</p>
+</div>
+
+
+</head>
+</main>
+<script>
+    var passed_food_item =localStorage.getItem("food_item");
+    var passed_food_loc =localStorage.getItem("food_loc");
+    document.getElementById("pass_1").innerHTML = passed_food_item;
+    document.getElementById("pass_2").innerHTML = passed_food_loc;
+
+</script>
+<body>
+</html>
