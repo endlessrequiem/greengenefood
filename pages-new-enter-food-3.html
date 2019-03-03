@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="./img/leaf-shape.png">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="">
+  <title>Enter Food</title>
+  <link href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" rel="stylesheet">
+  <link href="css/jqvmap.css" rel="stylesheet">
+  <link href="css/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+  <!-- Fullcalendar-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet">
+  <!-- Materialize-->
+  <link href="css/admin-materialize.min.css" rel="stylesheet">
+  <!-- Material Icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--ATTEMPT TO FIX BUTTON STYLING-->
+  <!--
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+.block:hover {
+  background-color: #ddd;
+  color: black;
+}
+</style>
+ -->
+</head>
+
+<body class="has-fixed-sidenav">
+  <header>
+    <div class="navbar-fixed">
+      <nav class="navbar green">
+        <div class="nav-wrapper"><a href="#!" class="brand-logo grey-text text-darken-4">Find Out Where Your Food is From</a>
+          <a href="#!" data-target="sidenav-left" class="sidenav-trigger left"><i class="material-icons black-text">menu</i></a>
+        </div>
+      </nav>
+    </div>
+    <ul id="sidenav-left" class="sidenav sidenav-fixed green">
+      <li><a href="dashboard.html" class="logo-container"><img class="materialize-logo" src="img/leaf-shape.png" alt="Materialize" style='height: auto; width: 15%; object-fit: contain'>
+          Green Gene</a></li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li class="bold waves-effect active"><a class="collapsible-header">Pages<i class="material-icons chevron">chevron_left</i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="dashboard.html" class="waves-effect">Dashboard<i class="material-icons">web</i></a></li>
+                <li><a href="pages-new-enter-food.html" class="waves-effect active">Enter Food<i class="material-icons">add</i></a></li>
+                <li><a href="pages-new-green-score.html" class="waves-effect">Green Score<i class="material-icons">show_chart</i></a></li>
+                <li><a href="pages-new-local-score.html" class="waves-effect">Local Score<i class="material-icons">near_me</i></a></li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+
+  </header>
+  <main>
+    <div class="fixed-chart-wrapper">
+      <h5 align="left" style="padding-left: 5%;">Your Recent Food</h5>
+      <br>
+      <!-- First Field -->
+      <div class="row" align="center">
+        <div class="col s12 m5">
+          <div class="card medium">
+            <div class="card-image">
+              <img src="img/almonds.jpg">
+              <span class="card-title">Almonds</span>
+            </div>
+            <div class="card-content" align="left">
+              <p><b>Origin:</b> Almonds sold at Trader Joes in Modesto are sourced from Ripon.</p>
+            </div>
+            <div class="card-action">
+              <font size="5">Score : </font>
+              <font color="green" size="6"><b>92</b></font>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m5">
+          <div class="card medium">
+            <div class="card-image">
+              <img src="img/hotdog1.jpg">
+              <span class="card-title">Hot Dog</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red" href="pages-new-enter-food-4.html"><i class="material-icons">warning</i></a>
+            </div>
+            <div class="card-content" align="left">
+              <p><b>Origin:</b> The meat from source of Hot Dogs sold at 99¢ Store in Turlock are unknown.</p>
+            </div>
+            <div class="card-action">
+              <font size="5">Score : </font><font color="red" size="6"><b>23</b></font>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <form id="food-entry" action="dashboard-2.html">
+        <div align="right" style="padding-right: 10%;">
+          <button onclick="myFunction()" class="btn waves-effect waves-light" type="submit" name="action">Dashboard
+            <i class="material-icons right">dashboard</i>
+          </button>
+        </div>
+      </form>
+
+      <script>
+        function myFunction() {
+          var x = document.getElementById("food-entry");
+          var text = "";
+          var i;
+          for (i = 0; i < x.length; i++) {
+            text += x.elements[i].value + "<br>";
+          }
+          document.getElementById("demo").innerHTML = text;
+        }
+      </script>
+
+      <!--END CONTAINER///////////////////////////////////////////-->
+
+
+      <!-- ATTEMPT 1 BUTTON FROM THIS CSS MESS FAILED. see attempt 2
+          <div align ="center"> <!--WHY DOES THE CSS KEEP DISABLING BUTTONS GFX
+          <button onclick="JavaScript:alert('You will love this book!')"> SHALL I LOOK? </button>
+          </div> -->
+
+      <!-- <div class="w3-container" align="center"> -->
+      <!-- ATTEMPT 2. FINALLY A BUTTON APPEARS AFTER ALL THIS MESS!!-->
+      <!-- <input type="button" class="w3-button block w3-black" value="SHALL I LOOK?" id="lookup_button" onclick=test_change(); onclick=test_passing();>
+    </div> -->
+      <!--SO I figured this work, but the button looks basic so far.-->
+
+      <!--PROBLEMS ENCOUNTERED: SEE ATTEMPT 1
+          WIDE/BLOCK won't work in ATTEMPT 2
+          TO-DO: have the button lookup chan
+          RESOURCE:
+          <input type="button"
+          <!--onclick=test_change()
+          <!-- onclick =test_change_3();
+          <div class="w3-container" align ="center" > ATTEMPT 2. FINALLY A BUTTON APPEARS AFTER ALL THIS MESS!!
+          <input type="button" class="w3-button block w3-black" value="SHALL I LOOK?" id ="lookup_button"
+           onclick =test_change();>
+          </div> <!--SO I figured this work, but the button looks basic so far.
+          -->
+
+
+      <!-- <br><br> -->
+
+      <!--FOR POPULATING BOXES ABOUT INFO & BEFORE LOOKUPS-->
+      <!-- <div align="center" id="testing_change">
+      <iframe class="test_class" src="test_news.html" style="border:2px solid gray;" id="first_iframe"></iframe>
+      <iframe class="test_class_2" src="test_look_history.html" style="border:2px solid gray;" id="sec_iframe"></iframe>
+    </div>
+    <div> -->
+      <!-- FOR SUBMIT BUTTON-->
+
+    </div>
+
+    <div class="card-content">
+      <!-- <canvas id="fixed-line-chart" height="400"></canvas>
+      <!--END CARD CLASS CONTAINER-->
+
+    </div> <!-- END SUB MAIN CONTAINER -->
+    </div>
+    <!--END MAIN CONTAINER-->
+
+
+    <!-- <div class="section white fixed"> //NOT NEEDED FOR NOW
+    <!-- <div class="row container fixed-chart-overlap"> // WE DON'T NEED AN EXCESS OF STUFF HERE!
+      <div class="col s12 m6">
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-metrics">
+              <div class="card-metric waves-effect active">
+                <div class="card-metric-title">Revenue</div>
+                <div class="card-metric-value">$77</div>
+                <div class="card-metric-change">
+                  <i class="material-icons left">keyboard_arrow_up</i>
+                  12%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <canvas id="mini-line-chart" width="100%" height="100%"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-metrics">
+              <div class="card-metric waves-effect active">
+                <div class="card-metric-title">Revenue</div>
+                <div class="card-metric-value">$333</div>
+                <div class="card-metric-change">
+                  <i class="material-icons left">keyboard_arrow_up</i>
+                  12%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <canvas id="mini-stacked-bar-chart" width="100%" height="100%"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-metrics">
+              <div class="card-metric waves-effect active">
+                <div class="card-metric-title">Revenue</div>
+                <div class="card-metric-value">222</div>
+                <div class="card-metric-change">
+                  <i class="material-icons left">keyboard_arrow_up</i>
+                  12%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <canvas id="mini-line-area-chart" width="100%" height="100%"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-metrics">
+              <div class="card-metric waves-effect active">
+                <div class="card-metric-title">Revenue</div>
+                <div class="card-metric-value">$111</div>
+                <div class="card-metric-change">
+                  <i class="material-icons left">keyboard_arrow_up</i>
+                  12%
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <canvas id="mini-doughnut-chart" width="100%" height="100%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <!-- <form> //  DO WE REALLY NEED A FORM THAT BREAKS THE SCROLLING??
+        <div class="row">
+          <div class="col s12">
+            <h2 class="section-title">Contact Us</h2>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_name" type="text">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text">
+            <label for="last_name">Last Name</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="message" class="materialize-textarea"></textarea>
+            <label for="message">Message</label>
+            <a class="waves-effect waves-light btn-large">Button</a>
+          </div>
+        </div>
+      </form> -->
+    </div>
+
+
+  </main>
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+
+  <!-- External libraries -->
+
+  <!-- jqvmap -->
+  <script type="text/javascript" src="js/jqvmap/jquery.vmap.min.js"></script>
+  <script type="text/javascript" src="js/jqvmap/jquery.vmap.world.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/jqvmap/jquery.vmap.sampledata.js"></script>
+
+  <!-- ChartJS -->
+  <script type="text/javascript" src="js/Chart.js"></script>
+  <script type="text/javascript" src="js/Chart.Financial.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+
+
+  <!-- Initialization script -->
+  <script src="js/admin.js"></script>
+  <script src="js/page-scripts/fixed-chart.js"></script>
+  <script src="js/init.js"></script>
+  }
+  <!--TESTING LOCAL SCRIPTING. CROSSING FINGERS-->
+  <!--After much thinkering, it works! WOOO! -->
+  <script>
+    function test_change() {
+      var x = document.getElementById("testing_change").querySelectorAll(".test_class");
+      if (x[0].src != "test_look_result.html" && x[0].src != "test_general_stat.html") {
+        x[0].src = "test_look_result.html";
+      }
+      var y = document.getElementById("testing_change").querySelectorAll(".test_class_2");
+      if (y[0].src != "test_general_stat.html" && x[0].src != "test_look_result.html") {
+        y[0].src = "test_general_stat.html";
+      }
+      test_passing();
+    }
+
+    function test_passing() {
+      //var food_item = document.getElementsByClassName('mdc-text-field__input_1').value;
+      //var food_loc  = document.getElementsByClassName('mdc-text-field__input_2').value;
+      var food_item = document.getElementById("text_input_1").value;
+      var food_loc = document.getElementById("text_input_2").value;
+      console.log(food_item);
+      console.log(food_loc);
+      localStorage.setItem(food_item);
+      localStorage.setItem(food_loc);
+    }
+  </script> <!-- END THE SCRIPT KIDDING! -->
+</body>
+
+</html>
