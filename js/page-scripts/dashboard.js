@@ -5,12 +5,12 @@
     var $flushAreaChartBlue = $('#flush-area-chart-blue');
     if ($flushAreaChartBlue.length) {
       var blueData = {
-        labels: ['one', 'two', 'three', 'four', 'five'],
+        labels: ['3 days ago', '2 days ago', 'yesterday', 'today'],
         datasets: [{
           backgroundColor: chartColorBlue,
           borderColor: chartColorBlue,
-          data: [2,4,7,3,8],
-          label: 'Number'
+          data: [72, 75, 77, 76],
+          label: 'Score'
         }]
       };
       var flushAreaChartBlue = new Chart($flushAreaChartBlue, {
@@ -41,12 +41,12 @@
     var $flushAreaChartPink = $('#flush-area-chart-pink');
     if ($flushAreaChartPink.length) {
       var pinkData = {
-        labels: ['one', 'two', 'three', 'four', 'five'],
+        labels: ['3 days ago', '2 days ago', 'yesterday', 'today'],
         datasets: [{
           backgroundColor: chartColorPink,
           borderColor: chartColorPink,
-          data: [7,5,3,6,6],
-          label: 'Number'
+          data: [5,3,6,6],
+          label: 'Score'
         }]
       };
       var flushAreaChartPink = new Chart($flushAreaChartPink, {
@@ -59,12 +59,12 @@
     var $flushAreaChartGreen = $('#flush-area-chart-green');
     if ($flushAreaChartGreen.length) {
       var greenData = {
-        labels: ['one', 'two', 'three', 'four', 'five'],
+        labels: ['3 days ago', '2 days ago', 'yesterday', 'today'],
         datasets: [{
           backgroundColor: chartColorGreen,
           borderColor: chartColorGreen,
-          data: [9,3,7,5,4],
-          label: 'Number'
+          data: [85,88,76,78],
+          label: 'Score'
         }]
       };
       var flushAreaChartGreen = new Chart($flushAreaChartGreen, {
@@ -86,7 +86,7 @@
       var doughnutChartJS = new Chart(doughnutChart, {
         type: 'doughnut',
         data: {
-          labels: ["Phone", "Tablet", "Laptop", "Desktop"],
+          labels: ["Fruits/Veggies", "Meat", "Wheat", "Other"],
           datasets: [{
             label: 'dataset 1',
             data: [12, 19, 3, 5],
