@@ -480,13 +480,13 @@ var tabLegendCallback = function(chart) {
 
     // Main Toggle Line Chart
     var toggleData = {
-      revenue: {
-        label: 'Revenue',
-        data: [1200, 940, 1340, 1440, 420, 1100, 670]
+      greenscore: {
+        label: 'Green Score',
+        data: [68, 71, 81, 85, 88, 76, 74 ]
       },
       users: {
-        label: 'Users',
-        data: [1252, 872, 543, 1902, 1334, 998, 1640]
+        label: 'Users Nearby',
+        data: [26, 28, 31, 30, 29, 30 , 32]
       },
       ctr: {
         label: 'CTR',
@@ -500,8 +500,8 @@ var tabLegendCallback = function(chart) {
       data: {
         labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         datasets: [{
-          label: toggleData['revenue'].label,
-          data: toggleData['revenue'].data,
+          label: toggleData['greenscore'].label,
+          data: toggleData['greenscore'].data,
           lineTension: 0,
           fill: 0
         }]
@@ -865,7 +865,7 @@ var tabLegendCallback = function(chart) {
       datasets: [{
         backgroundColor: chartColorPink,
         borderColor: chartColorPink,
-        data: [2,4,7,3,8],
+        data: [81,85,88,76,74],
         label: 'D0',
         pointHoverRadius: 3,
         pointHoverBorderWidth: 1
